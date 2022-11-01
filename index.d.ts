@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2020 The Stdlib Authors.
@@ -16,15 +16,14 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 2.0
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
 
-var iterMap = require( '@stdlib/math-iter-tools-map' );
-var ceil2 = require( '@stdlib/math-base-special-ceil2' );
+import { Iterator as Iter, IterableIterator } from '@stdlib/types/iter';
 
-
-// MAIN //
+// Define a union type representing both iterable and non-iterable iterators:
+type Iterator = Iter | IterableIterator;
 
 /**
 * Returns an iterator which rounds each iterated value to the nearest power of two toward positive infinity.
@@ -33,12 +32,11 @@ var ceil2 = require( '@stdlib/math-base-special-ceil2' );
 *
 * -   If an environment supports `Symbol.iterator` **and** a provided iterator is iterable, the returned iterator is iterable.
 *
-* @param {Iterator} iterator - input iterator
-* @throws {TypeError} must provide an iterator protocol-compliant object
-* @returns {Iterator} iterator
+* @param iterator - input iterator
+* @returns iterator
 *
 * @example
-* var uniform = require( '@stdlib/random-iter-uniform' );
+* var uniform = require( `@stdlib/random/iter/uniform` );
 *
 * var iter = iterCeil2( uniform( -100.0, 100.0 ) );
 *
@@ -53,11 +51,9 @@ var ceil2 = require( '@stdlib/math-base-special-ceil2' );
 *
 * // ...
 */
-function iterCeil2( iterator ) {
-	return iterMap( iterator, ceil2 );
-}
+declare function iterCeil2( iterator: Iterator ): Iterator;
 
 
 // EXPORTS //
 
-module.exports = iterCeil2;
+export = iterCeil2;
